@@ -1,0 +1,2 @@
+com/platzi/market/PlatziMarketApplicationTests.java
+ com.platzi.market.PlatziMarketApplicationTests

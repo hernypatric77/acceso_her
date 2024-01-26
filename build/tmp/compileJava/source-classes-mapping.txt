@@ -1,0 +1,96 @@
+com/market/her/domain/report/Report.java
+ com.market.her.domain.report.Report
+com/market/her/web/security/JWTUtil.java
+ com.market.her.web.security.JWTUtil
+com/market/her/domain/report/ExportType.java
+ com.market.her.domain.report.ExportType
+com/market/her/domain/dto/AuthenticationResponse.java
+ com.market.her.domain.dto.AuthenticationResponse
+com/market/her/domain/TransactionFilter.java
+ com.market.her.domain.TransactionFilter
+com/market/her/web/security/filter/JwtFilterRequest.java
+ com.market.her.web.security.filter.JwtFilterRequest
+com/market/her/domain/dto/LoginRequest.java
+ com.market.her.domain.dto.LoginRequest
+com/market/her/domain/service/FacturaServiceImpl.java
+ com.market.her.domain.service.FacturaServiceImpl
+com/market/her/domain/dto/User.java
+ com.market.her.domain.dto.User
+com/market/her/persistence/entity/Producto.java
+ com.market.her.persistence.entity.Producto
+com/market/her/domain/dto/FacturaResponse.java
+ com.market.her.domain.dto.FacturaResponse
+com/market/her/domain/report/dynamic/DynamicReportProperties.java
+ com.market.her.domain.report.dynamic.DynamicReportProperties
+com/market/her/persistence/mapper/UserMapper.java
+ com.market.her.persistence.mapper.UserMapper
+com/market/her/persistence/entity/Proveedor.java
+ com.market.her.persistence.entity.Proveedor
+com/market/her/domain/service/DetalleFacturaServiceImpl.java
+ com.market.her.domain.service.DetalleFacturaServiceImpl
+com/market/her/persistence/entity/Factura.java
+ com.market.her.persistence.entity.Factura
+com/market/her/domain/service/HerUserDetailsService.java
+ com.market.her.domain.service.HerUserDetailsService
+com/market/her/web/controller/AuthController.java
+ com.market.her.web.controller.AuthController
+com/market/her/web/controller/FacturaController.java
+ com.market.her.web.controller.FacturaController
+com/market/her/domain/service/report/ReportService.java
+ com.market.her.domain.service.report.ReportService
+com/market/her/domain/service/DetalleFacturaService.java
+ com.market.her.domain.service.DetalleFacturaService
+com/market/her/persistence/entity/DetalleFactura.java
+ com.market.her.persistence.entity.DetalleFactura
+com/market/her/AccesoApplication.java
+ com.market.her.AccesoApplication
+com/market/her/persistence/entity/Usuario.java
+ com.market.her.persistence.entity.Usuario
+com/market/her/persistence/crud/ClienteRepository.java
+ com.market.her.persistence.crud.ClienteRepository
+com/market/her/web/config/SwaggerConfig.java
+ com.market.her.web.config.SwaggerConfig
+com/market/her/web/controller/UserController.java
+ com.market.her.web.controller.UserController
+com/market/her/domain/dto/FacturaRequest.java
+ com.market.her.domain.dto.FacturaRequest
+com/market/her/util/Constant.java
+ com.market.her.util.Constant
+com/market/her/domain/dto/AuthenticationRequest.java
+ com.market.her.domain.dto.AuthenticationRequest
+com/market/her/domain/report/dynamic/DynamicReport.java
+ com.market.her.domain.report.dynamic.DynamicReport
+com/market/her/persistence/crud/UsuarioCrudRepository.java
+ com.market.her.persistence.crud.UsuarioCrudRepository
+com/market/her/domain/service/UserServiceImpl.java
+ com.market.her.domain.service.UserServiceImpl
+com/market/her/persistence/UsuarioRepository.java
+ com.market.her.persistence.UsuarioRepository
+com/market/her/domain/dto/Transaction.java
+ com.market.her.domain.dto.Transaction
+com/market/her/persistence/crud/DetalleFacturaRepository.java
+ com.market.her.persistence.crud.DetalleFacturaRepository
+com/market/her/domain/service/report/dynamic/DynamicReportBuilder.java
+ com.market.her.domain.service.report.dynamic.DynamicReportBuilder
+com/market/her/domain/service/UserService.java
+ com.market.her.domain.service.UserService
+com/market/her/persistence/crud/FacturaRepository.java
+ com.market.her.persistence.crud.FacturaRepository
+com/market/her/domain/service/FacturaService.java
+ com.market.her.domain.service.FacturaService
+com/market/her/domain/service/report/dynamic/DynamicColumnDataSource.java
+ com.market.her.domain.service.report.dynamic.DynamicColumnDataSource
+com/market/her/domain/repository/UserRepository.java
+ com.market.her.domain.repository.UserRepository
+com/market/her/domain/service/transaction/TransactionService.java
+ com.market.her.domain.service.transaction.TransactionService
+com/market/her/domain/service/report/dynamic/DynamicReportService.java
+ com.market.her.domain.service.report.dynamic.DynamicReportService
+com/market/her/web/controller/ReportController.java
+ com.market.her.web.controller.ReportController
+com/market/her/persistence/crud/ProductoRepository.java
+ com.market.her.persistence.crud.ProductoRepository
+com/market/her/persistence/entity/Cliente.java
+ com.market.her.persistence.entity.Cliente
+com/market/her/web/security/SecurityConfig.java
+ com.market.her.web.security.SecurityConfig
