@@ -1,5 +1,6 @@
 package com.market.her.domain;
 
+import com.market.her.domain.dto.FacturaDto;
 import com.market.her.domain.dto.Transaction;
 import com.market.her.domain.report.ExportType;
 import com.market.her.domain.report.dynamic.DynamicReportProperties;
@@ -12,7 +13,6 @@ import java.util.List;
 import static com.market.her.util.Constant.EXTENSION_JRXML;
 import static com.market.her.util.Constant.FOLDER_PATH_REPORT_DYNAMIC;
 
-//import static com.jamilxt.java_springboot_japserreport.util.Constant.*;
 
 public class TransactionFilter {
   ExportType exportType;
@@ -30,8 +30,8 @@ public class TransactionFilter {
     return  "Transaction Summary Report";
   }
 
-  public DynamicReportProperties generateDynamicColumnAndRows(List<Transaction> list) {
-    var totalVolume = Double.valueOf(0.00);
+  public DynamicReportProperties generateDynamicColumnAndRows(List<FacturaDto> list) {
+    var totalVolume = Integer.valueOf(0);
     var totalAmount = Double.valueOf(0.00);
     DecimalFormat df = new DecimalFormat("#,###.###");
 
@@ -44,45 +44,25 @@ public class TransactionFilter {
 
     // static
     columnHeaders.add("Date");
-    columnHeaders.add("Time");
-    columnHeaders.add("Site");
-    columnHeaders.add("Fleet");
-    columnHeaders.add("Vehicle");
-    columnHeaders.add("Driver");
-    columnHeaders.add("Auth Code");
-    columnHeaders.add("Tax Payer Id");
-    columnHeaders.add("Trn Number");
-    columnHeaders.add("Sub Account");
-    columnHeaders.add("Identification");
-    columnHeaders.add("Fuel");
-    columnHeaders.add("Volume\n(LTR)");
-    columnHeaders.add("Amount\n(TK)");
-    columnHeaders.add("Unit Price\n(TK)");
+    columnHeaders.add("Num factura");
+    columnHeaders.add("Proveedor");
+    columnHeaders.add("Cliente");
+    columnHeaders.add("Total\n(TK)");
 
     for (var s : list) {
       List<String> row = new ArrayList<>();
-      row.add(s.getDate());
-      row.add(s.getTime());
-      row.add(s.getSite());
-      row.add(s.getFleet());
-      row.add(s.getVehicle());
-      row.add(s.getDriver());
-      row.add(s.getAuthCode());
-      row.add(s.getTaxPayerId());
-      row.add(s.getTrnNumber());
-      row.add(s.getSubAccount());
-      row.add(s.getIdentification());
-      row.add(s.getFuel());
-      row.add(String.valueOf(s.getVolume()));
-      row.add(String.valueOf(s.getAmount()));
-      row.add(String.valueOf(s.getUnitPrice()));
+      row.add(String.valueOf(s.getFecha()));
+      row.add(s.getNumeroFactura());
+      row.add(s.getProveedor());
+      row.add(s.getCliente());
+      row.add(String.valueOf(s.getTotal()));
 
       rows.add(row);
 
       // sum
-      totalVolume+=s.getVolume();
-      totalAmount+=s.getAmount();
+      totalAmount+=s.getTotal();
     }
+      totalVolume =list.size();
 
     // summary
     summary.add("Total");

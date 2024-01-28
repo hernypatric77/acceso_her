@@ -2,6 +2,7 @@ package com.market.her.persistence.entity;
 
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "productos")
 @Data
+@ToString(callSuper = true, of = {"idProducto", "nombre", "valorUnitario"})
 public class Producto {
 	
 	@Id

@@ -1,9 +1,6 @@
 package com.market.her.domain.service.report;
 
-//import com.jamilxt.java_springboot_japserreport.domain.report.ExportType;
-//import com.jamilxt.java_springboot_japserreport.model.transaction.Transaction;
-//import com.jamilxt.java_springboot_japserreport.service.transaction.TransactionService;
-import com.market.her.domain.dto.Transaction;
+import com.market.her.domain.dto.FacturaDto;
 import com.market.her.domain.report.ExportType;
 import com.market.her.domain.service.transaction.TransactionService;
 import net.sf.jasperreports.engine.*;
@@ -38,7 +35,7 @@ public class ReportService {
   }
 
   public void downloadTransactionReport(ExportType exportType, HttpServletResponse response) throws JRException, IOException {
-    List<Transaction> transactionList = transactionService.getTransactionList();
+    List<FacturaDto> transactionList = transactionService.getTransactionList();
     exportReport(transactionList, exportType, response);
   }
 

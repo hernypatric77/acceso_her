@@ -1,16 +1,15 @@
 package com.market.her.domain.service.transaction;
 
-//import com.jamilxt.java_springboot_japserreport.domain.TransactionFilter;
-//import com.jamilxt.java_springboot_japserreport.domain.report.ExportType;
-//import com.jamilxt.java_springboot_japserreport.domain.report.dynamic.DynamicReport;
-//import com.jamilxt.java_springboot_japserreport.model.transaction.Transaction;
-//import com.jamilxt.java_springboot_japserreport.service.report.dynamic.DynamicReportService;
 import com.market.her.domain.TransactionFilter;
+import com.market.her.domain.dto.FacturaDto;
 import com.market.her.domain.dto.Transaction;
 import com.market.her.domain.report.ExportType;
 import com.market.her.domain.report.dynamic.DynamicReport;
+import com.market.her.domain.service.FacturaService;
 import com.market.her.domain.service.report.dynamic.DynamicReportService;
+import com.market.her.persistence.entity.Factura;
 import net.sf.jasperreports.engine.JRException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,41 +21,25 @@ import java.util.List;
 public class TransactionService {
 
   private final DynamicReportService dynamicReportService;
+  @Autowired
+  private FacturaService facturaService;
 
   public TransactionService(DynamicReportService dynamicReportService) {
     this.dynamicReportService = dynamicReportService;
   }
 
-  public List<Transaction> getTransactionList() {
+  public List<FacturaDto> getTransactionList() {
 
-    List<Transaction> transactionList = new ArrayList<>();
+    List<FacturaDto> listFacturaDto = new ArrayList<>();
+    Iterable<Factura> facturaList = facturaService.findAll();
+    facturaList.forEach(factura -> {
+      FacturaDto facturaDto = new FacturaDto(factura.getNumeroFactura(), factura.getCreateAt().toString(), factura.getTotal(),
+              factura.getCliente().getApellido().concat(" ").concat(factura.getCliente().getNombre()),
+              factura.getProveedor().getNombre(), "A".equalsIgnoreCase(factura.getEstado()) ? "ACTIVO":"ELIMINADO LOGICO");
+      listFacturaDto.add(facturaDto);
+    });
 
-    Transaction transactionOne = new Transaction("2020/11/16", "11:18:26", "SITE TEST",
-        "UNI001TEST - Basic2", "00003427 - PCP 3427", "UNI004AS - Salandy Aaron", "979548",
-        "IDContribuyente01", "E1A1XONM - 000460", "UNI004AS - Salandy Aaron",
-        "Card - 7095030162260000027", "Unleaded Plus ", 0.775, 2.25, 6.75);
-
-    Transaction transactionTwo = new Transaction("2020/11/16", "11:18:26", "SITE TEST",
-        "UNI001TEST - Basic2", "00003427 - PCP 3427", "UNI004AS - Salandy Aaron", "979548",
-        "IDContribuyente01", "E1A1XONM - 000460", "UNI004AS - Salandy Aaron",
-        "Card - 7095030162260000027", "Unleaded Plus ", 1.225, 3.55, 7.75);
-
-    Transaction transactionThree = new Transaction("2020/11/17", "11:28:26", "SITE TEST",
-        "UNI001TEST - Basic2", "00003427 - PCP 3427", "UNI004AS - JamilXT", "979548",
-        "IDContribuyente02", "E1A1XONM - 000460", "UNI004AS - JamilXT",
-        "Card - 7095030162260000027", "Unleaded Plus ", 1.775, 4.75, 8.75);
-
-    Transaction transactionFour = new Transaction("2020/11/18", "12:28:26", "SITE TEST",
-        "UNI001TEST - Basic3", "00003427 - PCP 3427", "UNI004AS - Faisal", "979548",
-        "IDContribuyente03", "E1A1XONM - 000460", "UNI004AS - Faisal",
-        "Card - 7095030162260000027", "Unleaded Plus ", 2.225, 5.95, 6.75);
-
-    transactionList.add(transactionOne);
-    transactionList.add(transactionTwo);
-    transactionList.add(transactionThree);
-    transactionList.add(transactionFour);
-
-    return transactionList;
+    return listFacturaDto;
   }
 
   public void exportTransactionReport(ExportType exportType, HttpServletResponse response) throws JRException, IOException {
