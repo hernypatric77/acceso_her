@@ -1,16 +1,19 @@
 package com.market.her.domain.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Date;
 
 @Data
+@AllArgsConstructor
 public class FacturaRequest {
     private String numeroFactura;
-//    private Date fecha;
     private Double total;
     private Long idCliente;
+    private Long idProvedor;
     private String estado;
+
+    private Long idProducto;
 
 
 }

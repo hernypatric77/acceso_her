@@ -11,6 +11,9 @@ public class FacturaResponse {
     private Date fecha;
     private Double total;
     private Long idCliente;
+    private Long idProvedor;
+    private Long idProducto;
+
     private String estado;
 
 

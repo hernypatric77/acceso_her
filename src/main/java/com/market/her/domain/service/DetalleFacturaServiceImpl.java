@@ -29,6 +29,7 @@ public class DetalleFacturaServiceImpl implements DetalleFacturaService {
     @Override
     @Transactional
     public DetalleFactura save(DetalleFactura detalleFactura) {
+
         return repository.save(detalleFactura);
     }
 

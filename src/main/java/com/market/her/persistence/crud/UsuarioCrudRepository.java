@@ -9,6 +9,4 @@ import java.util.Optional;
 
 public interface UsuarioCrudRepository extends CrudRepository<Usuario, Integer> {
     Optional<Usuario> findByNomUsuarioAndContrasenia(String username, String password);
-    // List<Usuario> findByIdCategoriaOrderByNombreAsc(int idCategoria);
-    //Optional<List<Usuario>> findByCantidadStockLessThanAndEstado(int cantidadStock, boolean estado);
 }

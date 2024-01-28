@@ -16,7 +16,8 @@ public class Factura {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "id")
+	private Long idFactura;
 
 	@Column(name = "numero_factura")
 	private String numeroFactura;
@@ -44,5 +45,7 @@ public class Factura {
 	public void prePersist() {
 		this.createAt = new Date();
 	}
+
+
 
 }
