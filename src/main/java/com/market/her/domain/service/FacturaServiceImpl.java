@@ -71,8 +71,10 @@ public class FacturaServiceImpl implements FacturaService {
         fac.setEstado(facturaR.getEstado());
         fac.setCliente(clienteRepository.findById(facturaR.getIdCliente()).get());
         fac.setProveedor(proveedorRepository.findById(facturaR.getIdProvedor()).get());
+        DetalleFactura detalleFactura =this.createDetalle(fac, facturaR.getIdProducto());
+        fac.setTotal(detalleFactura.getSubtotal() + detalleFactura.getValorIva());
         Factura fbd = repository.save(fac);
-        detalleFacturaRepository.save(this.createDetalle(fbd, facturaR.getIdProducto()));
+        detalleFacturaRepository.save(detalleFactura);
 
         FacturaResponse facturaResponse = new FacturaResponse();
         facturaResponse.setId(fbd.getIdFactura());

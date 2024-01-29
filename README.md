@@ -21,3 +21,9 @@ Servicio rest manejo del back-end de la prueba
   
   sudo -u postgres psql -d prueba -a -f insert_datos.sql
   
+  #Datos de prueba ingreso
+  
+  Usuario: admin
+  
+  Contraseña: adminadmin
+  

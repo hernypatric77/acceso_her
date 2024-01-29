@@ -1,3 +1,12 @@
+delete from public.detalle_factura;
+
+delete from public.facturas;
+
+DELETE FROM public.productos;
+
+DELETE FROM public.proveedores;
+
+delete from public.clientes ;
 
 DELETE FROM public.usuario;
 
@@ -9,7 +18,7 @@ INSERT INTO public.usuario
 (id, contrasenia, estado, usuario_login, nombre)
 VALUES(2, 'adminadmin', 'A', 'admin', 'Administrador');
 
-delete from public.clientes ;
+
 
 INSERT INTO public.clientes
 (id_cliente, apellido, create_at, email, nombre)
@@ -37,7 +46,7 @@ INSERT INTO public.clientes
 VALUES(8, 'Guaman', '2024-01-23 00:00:00.000', 'prueba@mail.com', 'Diana');
 
 
-DELETE FROM public.proveedores;
+
 
 INSERT INTO public.proveedores
 (id_proveedor, create_at, direccion, nombre)
@@ -56,7 +65,7 @@ INSERT INTO public.proveedores
 VALUES(4, '2024-01-25 00:00:00.000', 'Ibarra', 'Pulidora Jonh');
 
 
-DELETE FROM public.productos;
+
 
 INSERT INTO public.productos
 (id_producto, create_at, nombre, stock, valor_unitario, id_proveedor)
@@ -96,12 +105,12 @@ INSERT INTO public.productos
 VALUES(12, '2024-01-27 00:00:00.000', 'Producto 84', '10', 9.25, 4);
 
 
-delete from public.facturas;
+
 INSERT INTO public.facturas
 (id, create_at, estado, numero_factura, total, id_cliente, id_proveedor)
 VALUES(1, '2024-01-27 00:00:00.000', 'A', 'F-001', 20.0, 1, 1);
 
-delete from public.detalle_factura;
+
 
 INSERT INTO public.detalle_factura
 (id_det, cantidad, create_at, subtotal, valor_iva, id, id_producto)
